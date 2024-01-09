@@ -2,13 +2,14 @@
 
 #### [Referencies - Java 20 | What’s new in JDK 20?](https://www.youtube.com/watch?v=r-BoIi2RnMo)
 
+##### [I'm here](https://youtu.be/r-BoIi2RnMo?t=673)
+
 ---
 
 ## Java 16
 
 - ### Instance Of
 - Instead of use this
-
 ```javascript
      @Deprecated
     public void oldInstanceOf(Object obj) {
@@ -29,5 +30,29 @@
             System.out.println("\nThe value " + obj.toString() + "isn`t a String");
         }
     }
+```
+---
+
+- ### Records
+- Instead of use this
+```javascript
+@Data
+@Builder
+public class PersonClass {
+    private final String name;
+}
+```
+```javascript
+    personClass oldPerson = PersonClass.builder().name("angelo 1.0").build();
+    System.out.println("\nThis is an old Person NAME: " + oldPerson.getName());
+```
+- Use like this
+```javascript
+public record PersonRecord(String name) {
+}
+```
+```javascript
+    var newPerson = new PersonRecord("angelo 2.0");
+    System.out.println("\nThis is  a new Person NAME: " + newPerson.name());
 ```
 ---
