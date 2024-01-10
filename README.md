@@ -43,8 +43,8 @@ public class PersonClass {
 }
 ```
 ```javascript
-    personClass oldPerson = PersonClass.builder().name("angelo 1.0").build();
-    System.out.println("\nThis is an old Person NAME: " + oldPerson.getName());
+    personClass oldPersonDto = PersonClass.builder().name("angelo 1.0").build();
+    System.out.println("\nThis is an old Person NAME: " + oldPersonDto.getName());
 ```
 - Use like this
 ```javascript

@@ -1,5 +1,10 @@
-package com.angelozero.java20.java_16;
+package com.angelozero.java20.java_01_instanceof;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
 public class InstanceOf {
     @Deprecated
     public void oldInstanceOf(Object obj) {

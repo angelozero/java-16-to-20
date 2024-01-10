@@ -1,8 +1,8 @@
-package com.angelozero.java20.java_16.dto;
+package com.angelozero.java20.java_02_records.dto;
 
-public class OldPersonClass {
+public class Person {
 
-    public OldPersonClass(String name) {
+    public Person(String name) {
         this.name = name;
     }
 
