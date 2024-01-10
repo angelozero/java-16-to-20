@@ -56,3 +56,43 @@ public record PersonRecord(String name) {
     System.out.println("\nThis is  a new Person NAME: " + newPerson.name());
 ```
 ---
+
+- ### [Virtual Threads](https://www.youtube.com/watch?v=6zr4h7a7ALA)
+
+```javascript
+Instant start = Instant.now();
+virtualThread.execute(1000, Executors.newVirtualThreadPerTaskExecutor());
+Instant end = Instant.now();
+System.out.printf("\n Finished with %d", ChronoUnit.SECONDS.between(start, end));
+```
+
+```javascript
+public class VirtualThread {
+
+    private final AtomicInteger count = new AtomicInteger(0);
+
+    public void execute(int taskQuantity, ExecutorService executorService) throws InterruptedException {
+        for (int x = 0; x < taskQuantity; x++) {
+            executorService.execute(createTask());
+        }
+        executorService.shutdown();
+        executorService.awaitTermination(180, TimeUnit.MINUTES);
+    }
+
+    private Runnable createTask() {
+        long id = count.incrementAndGet();
+        long timeout = (long) (Math.random() * 1000 + 100);
+        return () -> {
+            try {
+                System.out.printf("\nTask %d is executing - %s", id, timeout);
+                Thread.sleep(timeout);
+                System.out.printf("Task %d finished \n", id);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        };
+    }
+}
+```
+
+---
